@@ -1,0 +1,124 @@
+<html>
+  <head><title>My Test Extension Options</title>
+    <style>
+        body {
+          line-height: 1;
+        }
+        ol, ul {
+          list-style: none;
+        }
+        blockquote, q {
+          quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+          content: '';
+          content: none;
+        }
+
+        /* remember to define focus styles! */
+        :focus {
+          outline: 0;
+        }
+
+        /* remember to highlight inserts somehow! */
+        ins {
+          text-decoration: none;
+        }
+        del {
+          text-decoration: line-through;
+        }
+
+        /* tables still need 'cellspacing="0"' in the markup */
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+
+        body {
+          font:normal 12px/18px "Lucida Grande", Helvetica, Arial, sans-serif;
+          color:#222;
+        }
+        .container {
+          width:960px;
+          margin:20px;
+        }
+        h1 {
+          font-size:24px;
+          margin:0 0 1.5em;
+        }
+        fieldset {
+          border:1px solid #dadada;
+          padding:10px;
+        }
+        legend {
+          font-size:14px;
+          font-weight:bold;
+        }
+        fieldset p {
+          color:#333;
+          padding:1em 0;
+        }
+        .form-field {
+          clear:both;
+          padding:5px 0;
+        }
+        .form-field label {
+          float:left;
+          display:block;
+          width:14em;
+          color:#666;
+          text-align:right;
+          margin-right:1em;
+          font-size:14px;
+          line-height:30px;
+        }
+        .form-field input {
+          font-size:14px;
+          padding:5px;
+          border:1px solid #dadada;
+          width:20em;
+        }
+        .button-row {
+          margin:0.5em 0 1em 15em;
+          font-size:14px;
+        }
+        span.error { padding:0 0 0 1em; color:red; }
+        div.error { color:red; padding:0.5em; border:1px solid red; background:#fee; }
+        span.loading { padding:0 0 0 1em; }
+        .button-row button {
+          background:#efefef;
+          border-color:#dadada;
+          border-width:1px;
+          padding:0.5em;
+        }
+        .instapaper {
+          padding-left:70px;
+          display:block;
+        }
+    </style>
+  </head>
+
+<body>
+  <div class="container">
+    <h1>Twitter-to-Instapaper Configuration</h1>
+    <fieldset>
+      <div class="instapaper">
+        <legend>Instapaper Credentials</legend>
+        <div class="form-field">
+          <label for="username">Email Address or Username:</label><input type="text" id="username" name="username" class="text-field">
+        </div>
+        <div class="form-field">
+          <label for="pwd">Password:</label><input type="password" id="pwd" name="pwrd" class="text-field">
+        </div>
+        <div class="button-row">
+          <button id="save">Save</button>
+        </div>
+      </div>
+    </fieldset>
+
+    <div id="status"></div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Twitter to Instapaper",
+  "version": "1.0",
+  "description": "Adds a keyboard shortcut to send any shared links in selected tweet to Instapaper. If no link is found, sends permalink to tweet.",
+  "permissions": [
+      "storage",
+      "https://www.instapaper.com/api/*"
+    ],
+  "content_scripts": [
+    {
+      "matches": ["http://twitter.com/*", "https://twitter.com/*"],
+      "js": ["lib/jquery.1.8.3.min.js", "main.js"]
+    }
+  ],
+  "options_page": "options.html",
+  "manifest_version": 2
+}
