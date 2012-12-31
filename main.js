@@ -9,19 +9,26 @@ document.addEventListener('keyup', function(e) {
     if (hovered.length != 0) {
         // find links
         var links = hovered.find('.twitter-timeline-link');
+        var processed = [];
         if (links.length != 0) {
-            // send each link to instapaper.
+            // send each unique link to instapaper.
             links.each(function(i){
-              saveToInstapaper(this.href, text);
-              animateSharedLink(this);
+              if ($.inArray(this.href, processed) == -1){
+                saveToInstapaper(this.href, text);
+                animateSharedLink(this);
+                processed.push(this.href);
+              }
               return true;
             });
         }
         else {
           // otherwise, send tweet permalink.
           var permalink = hovered.find('.js-permalink')[0];
-          saveToInstapaper(permalink.href, text);
-          animatePermalink(permalink);
+          if ($.inArray(permalink.href, processed) == -1){
+            saveToInstapaper(permalink.href, text);
+            animatePermalink(permalink);
+            processed.push(permalink.href);
+          }
         }
     }
 }, true);
@@ -66,6 +73,13 @@ function animateTextNode(txt){
     .animate({
       fontSize: "24px",
       left: "-=100"
+      },
+      {
+        step: function(current, fx){
+          if (fx.prop == "left" && current <= -50) {
+            $(fx.elem).css("color", "#222");
+          }
+        }
       })
     .prepend("\u272A&nbsp;")
     .fadeOut('slow', function(){
